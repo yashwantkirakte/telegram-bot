@@ -6,13 +6,15 @@ import asyncio
 TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Welcome! 👋")
+    if update.message:
+        await update.message.reply_text("Welcome! 👋")
 
 async def reply_hi(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = update.message.text.lower()
-    
-    if text in ["hi", "hello"]:
-        await update.message.reply_text("Welcome! 👋")
+    if update.message:
+        text = update.message.text.lower()
+        
+        if text in ["hi", "hello"]:
+            await update.message.reply_text("Welcome! 👋")
 
 app = ApplicationBuilder().token(TOKEN).build()
 
