@@ -5,7 +5,7 @@ import asyncio
 
 # Get token from Railway environment variable
 TOKEN = os.getenv("BOT_TOKEN")
-
+print("TOKEN VALUE:", TOKEN)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
         await update.message.reply_text("Welcome! 👋")
