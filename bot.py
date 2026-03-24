@@ -3,6 +3,7 @@ from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, fil
 import os
 import asyncio
 
+# Get token from Railway environment variable
 TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -16,9 +17,12 @@ async def reply_hi(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if text in ["hi", "hello"]:
             await update.message.reply_text("Welcome! 👋")
 
+# Create app
 app = ApplicationBuilder().token(TOKEN).build()
 
+# Add handlers
 app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT, reply_hi))
 
+# Run bot
 asyncio.run(app.run_polling())
