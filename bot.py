@@ -1,21 +1,24 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, filters, ContextTypes
-import os
 import asyncio
 
-# Get token from Railway environment variable
-TOKEN = os.getenv("BOT_TOKEN")
-print("TOKEN VALUE:", TOKEN)
+# 👉 Paste your bot token here (from BotFather)
+TOKEN = os.getenv("TOKEN")
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
-        await update.message.reply_text("Welcome! 👋")
+        await update.message.reply_text("""👋 Welcome to Stoic Ops!
+Your gateway to smart, strategic marketing discussions.
+We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together""")
 
 async def reply_hi(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
         text = update.message.text.lower()
         
         if text in ["hi", "hello"]:
-            await update.message.reply_text("Welcome! 👋")
+            await update.message.reply_text("""👋 Welcome to Stoic Ops!
+Your gateway to smart, strategic marketing discussions.
+We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together""")
 
 # Create app
 app = ApplicationBuilder().token(TOKEN).build()
