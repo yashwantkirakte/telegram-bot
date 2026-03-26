@@ -3,7 +3,7 @@ from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, fil
 import asyncio
 
 # 👉 Paste your bot token here (from BotFather)
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("7952724991:AAF0RIQ8sTCNoxS0p1CZlPcvEDlvTswkv4U")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message:
