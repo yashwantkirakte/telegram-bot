@@ -1,31 +1,24 @@
 from telegram import Update
-from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, filters, ContextTypes
-import asyncio
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-# 👉 Paste your bot token here (from BotFather)
-TOKEN = os.getenv("7952724991:AAF0RIQ8sTCNoxS0p1CZlPcvEDlvTswkv4U")
+# Replace this with your bot token
+TOKEN = "YOUR_BOT_TOKEN_HERE"
 
+# /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.message:
-        await update.message.reply_text("""👋 Welcome to Stoic Ops!
-Your gateway to smart, strategic marketing discussions.
-We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together""")
+    await update.message.reply_text(
+        "👋 Welcome! I'm your first Telegram bot.\nGlad to have you here!"
+    )
 
-async def reply_hi(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.message:
-        text = update.message.text.lower()
-        
-        if text in ["hi", "hello"]:
-            await update.message.reply_text("""👋 Welcome to Stoic Ops!
-Your gateway to smart, strategic marketing discussions.
-We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together""")
+# Main function
+def main():
+    app = ApplicationBuilder().token(TOKEN).build()
 
-# Create app
-app = ApplicationBuilder().token(TOKEN).build()
+    # Add command handler
+    app.add_handler(CommandHandler("start", start))
 
-# Add handlers
-app.add_handler(CommandHandler("start", start))
-app.add_handler(MessageHandler(filters.TEXT, reply_hi))
+    print("Bot is running...")
+    app.run_polling()
 
-# Run bot
-asyncio.run(app.run_polling())
+if __name__ == "__main__":
+    main()
