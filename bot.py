@@ -7,7 +7,9 @@ TOKEN = "7952724991:AAF0RIQ8sTCNoxS0p1CZlPcvEDlvTswkv4U"
 # /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "👋 Welcome! I'm your first Telegram bot.\nGlad to have you here!"
+        """👋 Welcome to Stoic Ops!
+Your gateway to smart, strategic marketing discussions.
+We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together"""
     )
 
 # Main function
