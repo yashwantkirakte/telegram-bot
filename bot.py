@@ -22,7 +22,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         """👋 Welcome to Stoic Ops!
 Your gateway to smart, strategic marketing discussions.
 
-We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together.""",
+We’re the official Telegram companion for Stoic Ops, a thriving Reddit community where marketers, entrepreneurs, and creators come together. \n join us on following platforms.""",
         reply_markup=reply_markup
     )
 
